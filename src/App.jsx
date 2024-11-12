@@ -1,9 +1,7 @@
-import Api from "./Api";
+import Api from "./components/Api.jsx";
 
 function App() {
-  return (
-    <Api />
-  );
+  return <Api />;
 }
 
 export default App;
