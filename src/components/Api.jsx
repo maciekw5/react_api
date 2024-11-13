@@ -28,13 +28,17 @@ function Api() {
         () => setWarning("Coś się zjebało")
       )
       .then((data) => {
-        console.log(data);
-        console.log();
+        if (!data.main) {
+          console.error("City doesnt't exist");
+          setWarning("City doesnt't exist");
+        } else {
+          setWarning("");
+          console.log(data);
 
-        const temperatureObject = data.main;
-        setTemp(temperatureObject.temp);
-        setHumidity(temperatureObject.humidity);
-        setPressure(temperatureObject.pressure);
+          setTemp(data.main.temp);
+          setHumidity(data.main.humidity);
+          setPressure(data.main.pressure);
+        }
       });
   };
 
